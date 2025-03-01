@@ -11,10 +11,10 @@ jobs:
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
 
-      - name: Set up JDK
+      - name: Set up JDK for BuildTools
         uses: actions/setup-java@v4.7.0
         with:
-          java-version: '17'
+          java-version: '21'
           distribution: 'temurin'
 
       - name: Download BuildTools
@@ -22,6 +22,12 @@ jobs:
 
       - name: Run BuildTools 1.21.4
         run: java -jar BuildTools.jar --rev 1.21.4
+
+      - name: Set up JDK for Gradle
+        uses: actions/setup-java@v4.7.0
+        with:
+          java-version: '8'
+          distribution: 'temurin'
       
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
