@@ -14,14 +14,14 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v4.7.0
         with:
-          java-version: '18'
+          java-version: '8'
           distribution: 'temurin'
 
       - name: Download BuildTools
         run: wget -O BuildTools.jar https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
 
-      - name: Run BuildTools 1.19.1
-        run: java -jar BuildTools.jar --rev 1.19.1
+      - name: Run BuildTools 1.16.5
+        run: java -jar BuildTools.jar --rev 1.16.5
       
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
